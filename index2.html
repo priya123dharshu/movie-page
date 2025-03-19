@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Booking</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #528fc7;
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        background-color: rgb(75, 143, 199);
+        box-shadow: 1px 0 20px 0;
+        padding: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #search-bar {
+        padding: 8px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        width: 250px;
+      }
+      #add-movie {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: rgb(255, 94, 0);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .movie-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.445);
+        width: 100%;
+        padding: 10px;
+      }
+      #card {
+        width: 20%;
+        margin: 10px ;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 1px 0 20px 0;
+      }
+      #card:hover {
+        transform: scale(1.05);
+        transition: all 1s;
+      }
+      #card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      #card-body {
+        padding: 1rem;
+        background: rgba(230, 227, 227, 0.849);
+        color: white;
+      }
+      .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .card-text {
+        margin-bottom: 0.5rem;
+      }
+
+      span{
+        color: rgb(59, 115, 236);
+      }
+      p{
+        color: black;
+      }
+      h3{
+        margin: 0;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h3>Movie Booking</h3>
+      <div>
+        <input type="text" id="search-bar" placeholder="Search movies..."> <i class="fas fa-search" style="color: white;"></i> 
+        <button id="add-movie">Add Movie</button>
+      </div>
+    </div>
+    <div class="movie-card"></div>
+    <script src="demo.js">
+    </script>
+  </body>
+</html>
