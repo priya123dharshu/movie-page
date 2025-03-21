@@ -9,6 +9,8 @@ if(submit){
 submit.addEventListener("click",(e)=>{
     e.preventDefault()
 
+    window.location.href="index2.html"
+
     let obj={
         name : Name.value,
         email:email.value,
@@ -18,7 +20,6 @@ submit.addEventListener("click",(e)=>{
     arr.push(obj)
     
     localStorage.setItem("register",JSON.stringify(arr));
-    console.log("Hiiiiiiiiiiiiiiii");
     
 })
 }
@@ -26,22 +27,24 @@ let loginmail = document.getElementById("email")
 console.log(loginmail.value);
 
 let loginpassword=document.getElementById("password")
-let check=false;
 let arr = JSON.parse(localStorage.getItem("register"))||[];
 
 if(submitbtn){
     submitbtn.addEventListener("click",(e)=>{
-        e.preventDefault();
+    e.preventDefault();
     console.log('jiii');
     console.log(arr)
-        arr.forEach(a =>{
-            if(a.email==loginmail.value && a.password==loginpassword.value){
-            console.log('hi')
+        arr.find(a =>{
+            console.log(a)
+            if(a.email.includes(loginmail.value) && a.password.includes(loginpassword.value)){
+            console.log(loginmail.value,loginpassword.value)
+            window.location.href='index2.html';
             }
-        })
 
-      if(check==true){window.location.href='index2.html'}
-      else{alert('invalid');return}  
+        })
+        
     })
 }
+
+
 

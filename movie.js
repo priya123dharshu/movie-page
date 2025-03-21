@@ -1,8 +1,7 @@
 let addmoviebtn=document.getElementById('add-movie')
 let card = document.querySelector(".movie-card");
 let adult = document.getElementsByClassName("card-Adult");
-let search = document.getElementById("search-bar")
-let searchicon=document.querySelector("fa-search")
+let searchicon=document.querySelector(".fa-search")
 let genres = document.getElementsByClassName("card-genre")
 let addbtn = document.getElementById("add-movie");
 let date = document.getElementById("date")
@@ -12,7 +11,7 @@ let title = document.querySelector(".card-title")
 let submitbtn=document.getElementById('formsubmitbtn')
 let userRequest = new XMLHttpRequest();
 
-
+// addmovie
 
 submitbtn.addEventListener('click',()=>{
 
@@ -47,10 +46,10 @@ submitbtn.addEventListener('click',()=>{
 
 
 
-function fetchData() {
+function fetchData(title) {
     let userRequest = new XMLHttpRequest();
 
-    userRequest.open("GET","https://mimic-server-api.vercel.app/movies");
+    userRequest.open("GET",`https://mimic-server-api.vercel.app/movies${title ? `?title=${(title)}` : ''}`);
     userRequest.responseType = "json"
 
     userRequest.onload = () => {
@@ -67,6 +66,8 @@ fetchData()
 
 
 function display(n){
+
+    
 
     if(adult==true)
     {
@@ -87,8 +88,11 @@ function display(n){
             10749: "Romance",
             53: "Thriller"
         };
+
     
        n.genre_ids=n.genre_ids.map(idvalue => genreid[Number(idvalue)] || "unknown");
+
+       
 
     card.innerHTML +=  `
     <div id="card"> 
@@ -108,3 +112,22 @@ function display(n){
 addmoviebtn.addEventListener('click',()=>{
     document.getElementById('form-container').style.display="block"
 })
+
+
+searchicon.addEventListener("click",()=>{
+    let search = document.getElementById("search-bar").value.trim();
+    card.innerHTML = '';
+    fetchData(search);
+    
+})
+
+let arr=JSON.parse(localStorage.getItem('register'))
+
+console.log(arr);
+
+let arrname = arr.name.value;
+
+console.log((arrname));
+
+
+
